@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  <script>
-    var request = new XMLHttpRequest();
- 
-    request.open('GET', 'https://young-bayou-61326.herokuapp.com/api/users', true);
-    request.responseType = 'json';
- 
-    request.onload = function () {
-      var data = this.response;
-      console.log(data);
-    };
- 
-    request.send();
-  </script>
-  </head>
-  <body>
-  </body>
-</html>
+fetch(“https://young-bayou-61326.herokuapp.com/api/users/”, {
+      mode: “cors”,
+      credentials: “include”,
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(“Success:“, result)
+      })
+      .catch(error => {
+        console.error(“Error:“, error)
+      })
